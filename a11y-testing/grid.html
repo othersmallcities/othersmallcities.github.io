@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>button test</title>
+        <style>
+        	.grid-container {
+        		display: grid;
+        		grid-template-columns: 1fr 2fr;
+        		grid-column-gap: 1rem;
+        		grid-row-gap: 0.5rem;
+        	}
+        	aside {
+        		background: #f1f1f1;
+        	}
+        	main {
+        		background: #ccc;
+        		height: 50vh;
+        	}
+        	header {
+        		grid-column: 1 / -1;
+					  background: lightblue;
+        		display:flex;
+        		justify-content: space-between;
+        	}
+				  @media (min-width: calc(48em + 192px)) { 
+						.grid-container { width: 200px; }
+					}
+        </style>
+    </head>
+    <body>
+			<button>button</button>
+			<button type="submit">submit</button>
+			<button type="reset">reset</button>
+			<div class="grid-container">
+				<header>
+					<h1>Header</h1>
+					<input type="search" value="search me">
+				</header>
+				<aside>
+					<p>sidebar</p>
+				</aside>
+				<main>
+					<p>main</p>
+				</main>
+			</div>
+    </body>
+</html>

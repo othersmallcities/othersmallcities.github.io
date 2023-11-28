@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>modal Test</title>
+		<style>
+			::backdrop {
+				background-image: linear-gradient(
+					45deg,
+					magenta,
+					rebeccapurple,
+					dodgerblue,
+					green
+				);
+				opacity: 0.75;
+			}
+			.sr-only {
+				clip: rect(1px, 1px, 1px, 1px);
+				clip-path: inset(50%);
+				height: 1px;
+				width: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<aside>
+			<p>The Simple is based on "<a href="https://codepen.io/digitalaccess/pen/gOebQXO">Dialog Element testing</a>".</p>
+		</aside>
+		<main>
+			<p><strong>Original Test date:</strong> 4th July 2022</p>
+			<p><strong>2nd Test date:</strong> 27th Nov 2023</p>
+			
+			<p>I have cleaned up the doubled up id's and added some basic styling just to show how the overfly can look like.</p>
+			
+			<p>Expected behavior:</p>
+			<ul>
+				<li>Focus should move into the dialog when opened</li>
+				<li>Screen readers should announce the user has entered a dialog (i.e. role="dialog")</li>
+				<li>Focus should stay within modal dialogs. Focus can leave a non-modal dialog.</li>
+				<li>Screen readers should stay within the modal and non-modal dialogs (similar to what aria-modal should do)</li>
+				<li>Focus should return to the button that opened the modal when closed</li>
+			</ul>
+			
+			<button id="modalDialog">Show a modal</button>
+			<dialog role="dialog" id="confirmation-dialog_1">
+				<h1>Do you want to delete everything?</h1>
+				<p>You will lose all your data.</p>
+				<button id="cancel-delete_1">Cancel</button>
+				<button id="confirm-delete_1">Delete!</button>
+			</dialog>
+			<p id="result_1"></p>
+			
+			<button id="nonModalDialog">Show a non-modal</button>
+			<dialog role="dialog" id="confirmation-dialog_2">
+				<h1>Do you want to delete everything?</h1>
+				<p>You will lose all your data.</p>
+				<button id="cancel-delete_2">Cancel</button>
+				<button id="confirm-delete_2">Delete!</button>
+			</dialog>
+			<p id="result_2"></p>
+			
+			<p>the following two are based on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">&lt;dialog&gt;: The Dialog element</a></p>
+			
+			<button id="simpleDialog_1">Show a Simple Dialog (no role, close button)</button>
+      <dialog id="confirmation-dialog_3">
+      	<button id="close_3" autofocus aria-labelledby="cb_1">X <span id="cb_1	" class="sr-only">Close</span></button>
+				<h1>Do you want to delete everything?</h1>
+				<p>You will lose all your data.</p>
+				<button id="cancel-delete_3">Cancel</button>
+				<button id="confirm-delete_3">Delete!</button>
+			</dialog>
+			<p id="result_3"></p>
+			
+			<button id="simpleDialog_2">Show a Simple Dialog (no role, close button, "x" aria hidden true)</button>
+      <dialog id="confirmation-dialog_4"> 
+      	<button id="close_4" aria-labelledby="cb_2" autofocus><span aria-hidden="true">X</span> <span id="cb_2" class="sr-only">Close</span></button>
+				<h1>Do you want to delete everything?</h1>
+				<p>You will lose all your data.</p>
+				<button id="cancel-delete_4">Cancel</button>
+				<button id="confirm-delete_4">Delete!</button>
+			</dialog>
+			<p id="result_4"></p>
+		</main>
+		<script>
+			let dialog_1 = document.getElementById("confirmation-dialog_1");
+			let dialog_2 = document.getElementById("confirmation-dialog_2");
+			let dialog_3 = document.getElementById("confirmation-dialog_3");
+			let dialog_4 = document.getElementById("confirmation-dialog_4");
+			let result_1 = document.getElementById("result_1");
+			let result_2 = document.getElementById("result_2");
+			let result_3 = document.getElementById("result_3");
+			let result_4 = document.getElementById("result_4");
+
+			// Show a modal dialog when clicking "Show a modal"
+			document.getElementById("modalDialog").addEventListener("click", function() {
+					dialog_1.showModal();
+			});
+
+			// Show a non-modal dialog when clicking "Show a non-modal"
+			document.getElementById("nonModalDialog").addEventListener("click", function() {
+					dialog_2.show();
+			});
+			
+			// Show the simple dialog with showModal :D 
+			document.getElementById("simpleDialog_1").addEventListener("click", function() {
+					dialog_3.showModal();
+			});
+			
+			document.getElementById("simpleDialog_2").addEventListener("click", function() {
+					dialog_4.showModal();
+			});
+					
+			// and now the cancel / delete / confirm functions in sequenze
+			document.getElementById("cancel-delete_1").addEventListener("click", function() {
+					dialog_1.close();
+					result_1.textContent = "1st Modal Canceled!";
+			});
+			document.getElementById("confirm-delete_1").addEventListener("click", function() {
+					dialog_1.close();
+					result_1.textContent = "1st Modal Deleted!";
+			});
+			
+			document.getElementById("cancel-delete_2").addEventListener("click", function() {
+					dialog_2.close();
+					result_2.textContent = "2nd Modal Canceled!";
+			});
+			document.getElementById("confirm-delete_2").addEventListener("click", function() {
+					dialog_2.close();
+					result_2.textContent = "2st Modal Deleted!";
+			});
+			
+			document.getElementById("cancel-delete_3").addEventListener("click", function() {
+					dialog_3.close();
+					result_3.textContent = "3rd Modal Canceled!";
+			});
+			document.getElementById("confirm-delete_3").addEventListener("click", function() {
+					dialog_3.close();
+					result_3.textContent = "3rd Modal Deleted!";
+			});
+			document.getElementById("close_3").addEventListener("click", function() {
+					dialog_3.close();
+					result_3.textContent = "3rd Modal Closed!";
+			});
+			
+			document.getElementById("cancel-delete_4").addEventListener("click", function() {
+					dialog_4.close();
+					result_4.textContent = "4th Modal Canceled!";
+			});
+			document.getElementById("confirm-delete_4").addEventListener("click", function() {
+					dialog_4.close();
+					result_4.textContent = "4th Modal Deleted!";
+			});
+			document.getElementById("close_4").addEventListener("click", function() {
+					dialog_4.close();
+					result_4.textContent = "4rd Modal Closed!";
+			});
+		</script>
+	</body>
+</html>
