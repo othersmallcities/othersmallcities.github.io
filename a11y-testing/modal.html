@@ -42,6 +42,8 @@
 				<li>Focus should stay within modal dialogs. Focus can leave a non-modal dialog.</li>
 				<li>Screen readers should stay within the modal and non-modal dialogs (similar to what aria-modal should do)</li>
 				<li>Focus should return to the button that opened the modal when closed</li>
+				<li>The Screenreader should announce an <code>&lt;aria-labledby&gt;</code> on the <code>&lt;dialog&gt;</code> element</li>
+								<li>The Screenreader should announce an <code>&lt;aria-lable&gt;</code> on the <code>&lt;dialog&gt;</code> element</li>
 			</ul>
 			
 			<button id="modalDialog">Show a modal</button>
@@ -53,7 +55,7 @@
 			</dialog>
 			<p id="result_1"></p>
 			
-			<button id="nonModalDialog">Show a non-modal</button>
+			<button id="nonModalDialog">Show a non-modal, using <code>show()</code></button>
 			<dialog role="dialog" id="confirmation-dialog_2">
 				<h1>Do you want to delete everything?</h1>
 				<p>You will lose all your data.</p>
@@ -64,10 +66,12 @@
 			
 			<p>the following two are based on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">&lt;dialog&gt;: The Dialog element</a></p>
 			
+			<p>The following two tests will open the modal with <code>showModal</code>. Dialog 1 has an <code>aria-labelledby</code>connected to the <code>h1</code>, dialog 2 has an <code>aria-label</code>.</p>
+			
 			<button id="simpleDialog_1">Show a Simple Dialog (no role, close button)</button>
-      <dialog id="confirmation-dialog_3">
-      	<button id="close_3" autofocus aria-labelledby="cb_1">X <span id="cb_1	" class="sr-only">Close</span></button>
-				<h1>Do you want to delete everything?</h1>
+      <dialog id="confirmation-dialog_3" aria-labelledby="h1">
+      	<button id="close_3" autofocus aria-labelledby="cb_1">X <span id="cb_1" class="sr-only">Close</span></button>
+				<h1 id="h1">Do you want to delete everything?</h1>
 				<p>You will lose all your data.</p>
 				<button id="cancel-delete_3">Cancel</button>
 				<button id="confirm-delete_3">Delete!</button>
@@ -75,7 +79,7 @@
 			<p id="result_3"></p>
 			
 			<button id="simpleDialog_2">Show a Simple Dialog (no role, close button, "x" aria hidden true)</button>
-      <dialog id="confirmation-dialog_4"> 
+      <dialog id="confirmation-dialog_4" aria-label="In this case it is just a label"> 
       	<button id="close_4" aria-labelledby="cb_2" autofocus><span aria-hidden="true">X</span> <span id="cb_2" class="sr-only">Close</span></button>
 				<h1>Do you want to delete everything?</h1>
 				<p>You will lose all your data.</p>
