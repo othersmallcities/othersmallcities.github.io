@@ -4,6 +4,13 @@
 		<title>modal Test</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
+			body {
+				font-family: sans-serif;
+				max-width: 60ch
+			}
+			body, button {
+				font-size: 1.2rem;
+			}
 			::backdrop {
 				background-image: linear-gradient(
 					45deg,
@@ -24,17 +31,29 @@
 				padding: 0;
 				position: absolute;
 			}
+			
+			table {
+				border-collapse: collapse;
+			}
+
+			th, td {
+				border: 1px solid #999;
+				padding: 0.5rem;
+				text-align: left;
+			}
 		</style>
 	</head>
 	<body>
 		<aside>
-			<p>The Simple is based on "<a href="https://codepen.io/digitalaccess/pen/gOebQXO">Dialog Element testing</a>".</p>
+			<p>This Test is based on "<a href="https://codepen.io/digitalaccess/pen/gOebQXO">Dialog Element testing</a>", done for <a href="https://github.com/accessibilitysupported/a11ysupport.io/issues/239">a11ysupport issue No. 239</a>. This will hopefully serve as the 2nd test needed.</p>
 		</aside>
 		<main>
+			<h1><code>&lt;dialog&gt;</code> Element Test</h1>
 			<p><strong>Original Test date:</strong> 4th July 2022</p>
-			<p><strong>2nd Test date:</strong> 27th Nov 2023</p>
+			<p><strong>2nd Test date:</strong> 29th Nov 2023</p>
 			
 			<p>I have cleaned up the doubled up id's and added some basic styling just to show how the overfly can look like.</p>
+			<p>For testing how <code>&lt;role="dialog"&gt;</code> impacts things, I have deleted it and added it back on the first dialog, dialog's 3 and 4 never had it.</p>
 			
 			<p>Expected behavior:</p>
 			<ul>
@@ -46,6 +65,8 @@
 				<li>The Screenreader should announce an <code>&lt;aria-labledby&gt;</code> on the <code>&lt;dialog&gt;</code> element</li>
 								<li>The Screenreader should announce an <code>&lt;aria-lable&gt;</code> on the <code>&lt;dialog&gt;</code> element</li>
 			</ul>
+			
+			<h2>Tests</h2>
 			
 			<button id="modalDialog">Show a modal</button>
 			<dialog role="dialog" id="confirmation-dialog_1">
@@ -88,6 +109,341 @@
 				<button id="confirm-delete_4" autofocus>Delete!</button>
 			</dialog>
 			<p id="result_4"></p>
+			
+			<article>
+				<h2>Results</h2>
+				<p><a href="org">Original Test</a></p>				
+				<h3>New Test</h3>
+				<p>Browser</p> 
+				<table>
+					<thead>
+						<tr>
+							<th>Expectation </th>
+							<th>Chrome on Win10 </th>
+							<th>Firefox on Win10 </th>
+							<th>Edge on Win10 </th>
+							<th>Safari on Mac </th>
+							<th>Safari on iOS </th>
+							<th>Chrome on Android</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Does focus move into the dialog? </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does focus stay in the modal dialog? </td>
+							<td>Yes, but focus can move to browser chrome</td>
+							<td>Yes, but focus can move to browser chrome</td>
+							<td>Yes, but focus can move to browser chrome</td>
+							<td>Yes, but focus can move to browser chrome</td>
+							<td>Yes, but moves to browser chrome when reading all, also focusable</td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Can focus leave the the non-modal dialog? </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does focus return to the dialog trigger button when closed?</td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does Autofocus work? </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>yes </td>
+							<td>Not tested </td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p>Screenreader</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Expectation </th>
+							<th>JAWS 2022 with Chrome </th>
+							<th>JAWS 2022 with Firefox </th>
+							<th>JAWS 2022 with Edge </th>
+							<th>NVDA with Chrome </th>
+							<th>NVDA with Firefox </th>
+							<th>Narrator on Edge</th>
+							<th>VoiceOver on Mac with Safari </th>
+							<th>VoiceOver on iOS with Safari </th>
+							<th>Talkback on Android with Chrome</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Does the screen reader mention "Dialog" when the modal dialog opens?</td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes, but only if aria-label/ledby is present</td>
+							<td>Yes </td>
+							<td>Yes, but only when all contents are read or if aria-label / aria-labelledby are present</td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does the screen reader mention "Dialog" when the non-modal dialog opens?</td>
+							<td>Yes! </td>
+							<td>Yes! </td>
+							<td>Yes! </td>
+							<td>Yes! </td>
+							<td>Yes! </td>
+							<td>No </td>
+							<td>Yes! </td>
+							<td>No, only announces the first focused element </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does adding role="dialog" make the screen reader acknowledge the dialog?</td>
+							<td>No Change </td>
+							<td>No Change </td>
+							<td>No Change </td>
+							<td>No Change </td>
+							<td>No Change </td>
+							<td>No change </td>
+							<td>No change </td>
+							<td>No change </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does the screen reader stay in the modal dialog element? </td>
+							<td>Yes, but browser chrome is focusable </td>
+							<td>Yes, but browser chrome is focusable </td>
+							<td>Yes, but browser chrome is focusable </td>
+							<td>Yes, but browser chrome is focusable </td>
+							<td>Yes, but browser chrome is focusable </td>
+							<td>Yes, but browser chrome is focusable</td>
+							<td>Yes, but browser chrome is focusable</td>
+							<td>Yes, but browser chrome is focusable </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does the screen reader stay in the non-modal dialog element?</td>
+							<td>No, continues into normal DOM flow </td>
+							<td>No, continues into normal DOM flow </td>
+							<td>No, continues into normal DOM flow </td>
+							<td>No, continues into normal DOM flow </td>
+							<td>No, continues into normal DOM flow </td>
+							<td>No, continues into normal DOM flow</td>
+							<td>No, continues into normal DOM flow </td>
+							<td>No, continues into normal DOM flow </td>
+							<td>Not tested </td>
+						</tr>
+						<tr>
+							<td>Does the screen reader announce the "aria-labelledby" on the <dialog> element</dialog></td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td> </td>
+						</tr>
+						<tr>
+							<td>Does the screen reader announce the "aria-label" on the <dialog> element</dialog></td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td>Yes </td>
+							<td> </td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h4>Conclusion (New Test)</h4>
+				<p>The dialog element can be used to make an easy modal window now. It works, focus and screen readers stay inside the modal window. Screen readers are inconsistent with how to treat non-modal dialogs, though this is less of an issue.</p>
+				<p>Adding <code>role=dialog</code> is possbile, but seems unnecessary as it does not appear to change anything. Instead, having <code>aria-label</code> or <code>aria-labeledby</code> is more compelling as it forces the announcement of "dialog" every time.</p>
+				<p>The <code>&lt;dialog&gt;</code> element with <code>showModal()</code> looks to be the preferred way of doing things.</p>
+				<h4>Test and Version details (New Test)</h4>
+				<ul>
+					<li>JAWS 2024.2310.70 with Chrome 119.0.6045.200</li>
+					<li>JAWS 2024.2310.70 with Firefox 120.0</li>
+					<li>JAWS 2024.2310.70 with Edge Edge 119.0.2151.93</li>
+					<li>NVDA 2023.3.0.29780 with Chrome 119.0.6045.200</li>
+					<li>NVDA 2023.3.0.29780 with Firefox 120.0</li>
+					<li>Narrator on Windows 11 Pro, 10.0.22631 with Edge 119.0.2151.93</li>
+					<li>VoiceOver (macOS) 14.1.1 on Safari 17.1 (19616.2.9.11.7)</li>
+					<li>VoiceOver (iOS) 17.1.1 on Safari 17.1.1</li>
+				</ul>
+				<h3 id="org">Original Test</h3>
+				<p>Browser</p>
+				<table>
+				 <thead>
+					 <tr>
+						 <th> Expectation </th>
+						 <th> Chrome on Win10 </th>
+						 <th> Firefox on Win10 </th>
+						 <th> Safari on Mac </th>
+						 <th> Edge on Win10 </th>
+						 <th> Safari on iOS </th>
+						 <th> Chrome on Android </th>
+					 </tr>
+				 </thead>
+				 <tbody>
+					 <tr>
+						 <td> Does focus move into the dialog? </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+					 </tr>
+					 <tr>
+						 <td> Does focus stay in the modal dialog? </td>
+						 <td> Yes, but focus can move to the elements of the browser </td>
+						 <td> Yes, but focus can move to elements of the browser, and the webpage element (but not elements inside the webpage) </td>
+						 <td> Yes, but focus can move to the elements of the browser </td>
+						 <td> Yes, but focus can move to the elements of the browser </td>
+						 <td> Yes, but focus can move to the elements of the browser </td>
+						 <td> Yes, but focus can move to the elements of the browser </td>
+					 </tr>
+					 <tr>
+						 <td> Can focus leave the the non-modal dialog? </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+					 </tr>
+					 <tr>
+						 <td> Does focus return to the dialog trigger button when closed? </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+						 <td> Yes </td>
+					 </tr>
+				 </tbody>
+				 </table>
+				<p>Screenreader</p>
+				<table>
+					<thead>
+						<tr>
+							<th> Expectation </th>
+							<th> JAWS 2022 with Chrome </th>
+							<th> JAWS 2022 with Firefox </th>
+							<th> JAWS 2022 with Edge </th>
+							<th> NVDA with Chrome </th>
+							<th> NVDA with Firefox </th>
+							<th> VoiceOver on Mac with Safari </th>
+							<th> VoiceOver on iOS with Safari </th>
+							<th> Talkback on Android with Chrome </th>
+							<th> Narrator on Edge </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> Does the screen reader mention "Dialog" when the modal dialog opens? </td>
+							<td> No, just reads the page title when opened. </td>
+							<td> Yes </td>
+							<td> No, just reads the page title when opened. </td>
+							<td> Yes, but it reads the page title first. </td>
+							<td> Yes </td>
+							<td> No </td>
+							<td> No </td>
+							<td> No </td>
+							<td> No, just reads the page title when opened. </td>
+						</tr>
+						<tr>
+							<td> Does the screen reader mention "Dialog" when the non-modal dialog opens? </td>
+							<td> Yes </td>
+							<td> Yes </td>
+							<td> Yes </td>
+							<td> Yes </td>
+							<td> Yes </td>
+							<td> No </td>
+							<td> No </td>
+							<td> No </td>
+							<td> No </td>
+						</tr>
+						<tr>
+							<td> Does adding <code>role="dialog"</code> make the screen reader acknowledge the dialog? </td>
+							<td> No Change </td>
+							<td> No Change </td>
+							<td> No Change </td>
+							<td> No Change </td>
+							<td> No Change </td>
+							<td> Yes </td>
+							<td> Sort of, the announcement is unreliable. VoiceOver often tries to say "Web dialog" but then it sometimes gets interrupted by the cancel button text. Seems unreliable and buggy. </td>
+							<td> No, but it does say "dialog opened" the first time you open the non-modal dialog. Seems unreliable and buggy. </td>
+							<td> No </td>
+						</tr>
+						<tr>
+							<td> Does the screen reader stay in the modal dialog element? </td>
+							<td> Yes </td>
+							<td> Yes, but you can read the page behind the modal if you move focus out to the webpage container element </td>
+							<td> Yes </td>
+							<td> Yes </td>
+							<td> Yes, but you can read the page behind the modal if you move focus out to the webpage container element </td>
+							<td> Yes </td>
+							<td> Yes, but it can leave and read the Safari browser buttons </td>
+							<td> Yes, but it can leave and read the Chrome browser buttons </td>
+							<td> Yes, but it can leave and read the buttons in the Edge browser </td>
+						</tr>
+						<tr>
+							<td> Does the screen reader stay in the non-modal dialog element? </td>
+							<td> Yes. Note: If you move focus outside the non-modal then the screen reader can read everything on the page. </td>
+							<td> Yes. Note: If you move focus outside the non-modal then the screen reader can read everything on the page. </td>
+							<td> Yes. Note: If you move focus outside the non-modal then the screen reader can read everything on the page. </td>
+							<td> Yes. Note: If you move focus outside the non-modal then the screen reader can read everything on the page. </td>
+							<td> Yes. Note: If you move focus outside the non-modal then the screen reader can read everything on the page. </td>
+							<td> No </td>
+							<td> Yes, but it can leave and read the Safari browser buttons </td>
+							<td> No </td>
+							<td> No </td>
+						</tr>
+					</tbody>
+					</table>
+				<h4>Conclusion</h4>
+				<p>The dialog element can be used to make an easy modal window now. It works, focus and screen readers stay inside the modal window. Screen readers are inconsistent with how to treat non-modal dialogs, though this is less of an issue.</p>
+				<p>It's best practice to still add role="dialog" to help some screen readers announce the presense of the dialog, and adding it doesn’t break anything.</p>
+				<p>To help users know they are in a dialog, you could make the button text clear that it opens a dialog, and/or add hidden text at the top and bottom of your dialog that specify where the dialog starts and ends.</p>
+			</article>
+			<h4>Test and Version details (Original test)</h4>
+			<ul>
+				<li>JAWS 2022.2112.24 with Chrome 103</li>
+				<li>JAWS 2022.2112.24 with Firefox 102</li>
+				<li>JAWS 2022.2112.24 with Edge 103</li>
+				<li>NVDA 2021.2 with Chrome 103</li>
+				<li>NVDA 2021.2 with Firefox 102</li>
+				<li>VoiceOver (macOS) 12.4 on Safari 12.4</li>
+				<li>VoiceOver (iOS) 15.5 on Safari 15.5</li>
+				<li>TalkBack 12.2 on Chrome 103</li>
+				<li>Narrator on Windows 10</li>
+			</ul>
 		</main>
 		
 		<script>
