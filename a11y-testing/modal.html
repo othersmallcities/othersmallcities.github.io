@@ -57,7 +57,7 @@
 			<p id="result_1"></p>
 			
 			<button id="nonModalDialog">Show a non-modal, using <code>show()</code></button>
-			<dialog role="dialog" id="confirmation-dialog_2">
+			<dialog role="dialog" 	="confirmation-dialog_2">
 				<h1>Do you want to delete everything?</h1>
 				<p>You will lose all your data.</p>
 				<button id="cancel-delete_2">Cancel</button>
@@ -70,7 +70,7 @@
 			<p>The following two tests will open the modal with <code>showModal</code>. Dialog 1 has an <code>aria-labelledby</code>connected to the <code>h1</code>, dialog 2 has an <code>aria-label</code>.</p>
 			
 			<button id="simpleDialog_1">Show a Simple Dialog (no role, close button)</button>
-      <dialog id="confirmation-dialog_3" aria-labelledby="h1">
+      <dialog id="confirmation-dialog_3" aria-labelledby="h1" aria-modal="true">
       	<button id="close_3" autofocus aria-labelledby="cb_1">X <span id="cb_1" class="sr-only">Close</span></button>
 				<h1 id="h1">Do you want to delete everything?</h1>
 				<p>You will lose all your data.</p>
@@ -81,14 +81,15 @@
 			
 			<button id="simpleDialog_2">Show a Simple Dialog (no role, close button, "x" aria hidden true)</button>
       <dialog id="confirmation-dialog_4" aria-label="In this case it is just a label"> 
-      	<button id="close_4" aria-labelledby="cb_2" autofocus><span aria-hidden="true">X</span> <span id="cb_2" class="sr-only">Close</span></button>
+      	<button id="close_4" aria-labelledby="cb_2"><span aria-hidden="true">X</span> <span id="cb_2" class="sr-only">Close</span></button>
 				<h1>Do you want to delete everything?</h1>
 				<p>You will lose all your data.</p>
 				<button id="cancel-delete_4">Cancel</button>
-				<button id="confirm-delete_4">Delete!</button>
+				<button id="confirm-delete_4" autofocus>Delete!</button>
 			</dialog>
 			<p id="result_4"></p>
 		</main>
+		
 		<script>
 			let dialog_1 = document.getElementById("confirmation-dialog_1");
 			let dialog_2 = document.getElementById("confirmation-dialog_2");
