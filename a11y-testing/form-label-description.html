@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Form: Label and description + Error Test - OtherSamllCities A11y Test Website</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.error{
+				color: #d10000;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Form: Label and description + Error Test</h1>
+      <form>
+      	<h2>Label &amp; description standalone (1)</h2>
+      	<label for="input_1">Input 1 label</label>
+      	<p id="input_1_helper">Input 1 description</p>
+      	<input type="text" id="input_1" name="input_1" aria-describedby="input_1_helper">
+      	<hr>
+      	<h2>Label &amp; description standalone (2)</h2>
+      	<label for="input_2">Input 2 label</label>
+      	<input type="text" id="input_2" name="input_2" aria-describedby="input_2_helper">
+      	<p id="input_2_helper">Input 2 description</p>
+      	<hr>
+      	<h2>Label &amp; description standalone + error (3)</h2>
+      	<label for="input_3">Input 3 label</label>
+      	<input type="text" id="input_3" name="input_3" aria-describedby="input_3_helper">
+      	<p id="input_3_helper">Input 3 description<br><span class="error">Input 3 error</span></p>
+      	<hr>
+      	<h2>Label &amp; description inside label, with described by (4)</h2>
+      	<label for="input_4">Input 4 label<br>
+      		<span id="input_4_helper">Input 4 description</span>
+      	</label>
+      	<input type="text" id="input_4" name="input_4" aria-describedby="input_4_helper">
+      	<hr>
+      	<h2>Label &amp; description inside label, without described by (5)</h2>
+      	<label for="input_5">Input 5 label<br>
+      		<span>Input 5 description</span>
+      	</label>
+      	<input type="text" id="input_5" name="input_5">
+      	<hr>
+      	<h2>Label, description &amp; input inside label, without described by (6)</h2>
+      	<label for="input_6">Input 6 label<br>
+      		<span>Input 6 description</span>
+      		<input type="text" id="input_6" name="input_6">
+      	</label>
+      </form>
+		</main>
+	</body>
+</html>
