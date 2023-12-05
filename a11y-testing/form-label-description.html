@@ -7,50 +7,109 @@
 			.error{
 				color: #d10000;
 			}
+			table {
+				border-collapse: collapse;
+			}
+
+			th, td {
+				border: 1px solid #999;
+				padding: 0.5rem;
+				text-align: left;
+			}
 		</style>
 	</head>
 	<body>
 		<main>
 			<h1>Form: Label and description + Error Test</h1>
+			<h2 id="test">test</h2>
       <form>
-      	<h2>Label &amp; description standalone (1)</h2>
+      	<h3>Label &amp; description standalone (1)</h3>
       	<label for="input_1">Input 1 label</label>
       	<p id="input_1_helper">Input 1 description</p>
       	<input type="text" id="input_1" name="input_1" aria-describedby="input_1_helper">
       	<hr>
-      	<h2>Label &amp; description standalone (2)</h2>
+      	<h3>Label &amp; description standalone (2)</h3>
       	<label for="input_2">Input 2 label</label>
       	<input type="text" id="input_2" name="input_2" aria-describedby="input_2_helper">
       	<p id="input_2_helper">Input 2 description</p>
       	<hr>
-      	<h2>Label &amp; description standalone + error (3)</h2>
+      	<h3>Label &amp; description standalone + error (3)</h3>
       	<label for="input_3">Input 3 label</label>
       	<input type="text" id="input_3" name="input_3" aria-describedby="input_3_helper">
       	<p id="input_3_helper">Input 3 description<br><span class="error">Input 3 error</span></p>
       	<hr>
-      	<h2>Label &amp; description inside label, with described by (4)</h2>
+      	<h3>Label &amp; description inside label, with described by (4)</h3>
       	<label for="input_4">Input 4 label<br>
       		<span id="input_4_helper">Input 4 description</span>
       	</label>
       	<input type="text" id="input_4" name="input_4" aria-describedby="input_4_helper">
       	<hr>
-      	<h2>Label &amp; description inside label, without described by (5)</h2>
+      	<h3>Label &amp; description inside label, without described by (5)</h3>
       	<label for="input_5">Input 5 label<br>
       		<span>Input 5 description</span>
       	</label>
       	<input type="text" id="input_5" name="input_5">
       	<hr>
-      	<h2>Label, description &amp; input inside label, without described by (6)</h2>
+      	<h3>Label, description &amp; input inside label, without described by (6)</h3>
       	<label for="input_6">Input 6 label<br>
       		<span>Input 6 description</span>
       		<input type="text" id="input_6" name="input_6">
       	</label>
       	<hr>
-      	<h2>Label &amp; description with aria-labelledby standalone (7)</h2>
+      	<h3>Label &amp; description with aria-labelledby standalone (7)</h3>
       	<label for="input_7">Input 7 label</label>
       	<p id="input_7_helper">Input 7 description</p>
       	<input type="text" id="input_7" name="input_7" aria-labelledby="input_7_helper">
       </form>
+      <h2 id="results">Results</h2>
+      <table class="table table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1">Expectation</th>
+<th title="Field #2">JAWS 2024 with Chrome</th>
+<th title="Field #3">JAWS 2024 with Firefox</th>
+<th title="Field #4">JAWS 2024 with Edge</th>
+<th title="Field #5">NVDA with Chrome</th>
+<th title="Field #6">NVDA with Firefox</th>
+<th title="Field #7">Narrator on Edge</th>
+<th title="Field #8">VoiceOver on Mac with Safari 17.1.2 (19616.2.9.11.12), Mac OS 14.1.2 (23B92)</th>
+<th title="Field #9">VoiceOver on iOS with Safari <br/>17.1.2</th>
+<th title="Field #10">Talkback on Android with Chrome</th>
+</tr></thead>
+<tbody><tr>
+<td>Announce Label</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>1 through 7</td>
+<td>Not testest</td>
+</tr>
+<tr>
+<td>Announce Label &amp; description / error</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit, has autocomplete<br/>describedby <br/>Blank<br/>4 announce:<br/>&lt;label&gt;<br/>edit, has autocomplete<br/>describedby <br/>blank<br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit, has autocomplete<br/>blank<br/>7 announces: <br/>Labelledby + edit, has autocomplete<br/>blank<br/><br/>Ignores label test</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit<br/>7 announces: <br/>Labelledby + edit,<br/>Ignores label test</td>
+<td>4 through 6,<br/>Described by &amp; labeled by are ignored on focus, but can be read out via “more items menu” which is then not read out loud</td>
+<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>“Description” + describedby <br/>4 through 6 it will announce &lt;label&gt; + describedby<br/>7 the labelledby replaces the label</td>
+<td>Not testest</td>
+</tr>
+</tbody></table>
+		<h2>Screen reader and OS Version Details</h2>
+		<ul>
+			<li>JAWS 2024.2310.70 with Chrome 119.0.6045.200</li>
+			<li>JAWS 2024.2310.70 with Firefox 120.0</li>
+			<li>JAWS 2024.2310.70 with Edge Edge 119.0.2151.93</li>
+			<li>NVDA 2023.3.0.29780 with Chrome 119.0.6045.200</li>
+			<li>NVDA 2023.3.0.29780 with Firefox 120.0</li>
+			<li>Narrator on Windows 11 Pro, 10.0.22631 with Edge 119.0.2151.93</li>
+			<li>VoiceOver (macOS) 14.1.2 on Safari 17.1.2  (19616.2.9.11.7)</li>
+			<li>VoiceOver (iOS) 17.1.2 on Safari 17.1.2</li>
+		</ul>
 		</main>
 	</body>
 </html>
