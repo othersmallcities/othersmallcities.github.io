@@ -15,6 +15,7 @@
 				border: 1px solid #999;
 				padding: 0.5rem;
 				text-align: left;
+				vertical-align: top;
 			}
 		</style>
 	</head>
@@ -61,8 +62,8 @@
       	<p id="input_7_helper">Input 7 help text</p>
       	<input type="text" id="input_7" name="input_7" aria-labelledby="input_7_helper">
       </form>
-      <h2 id="results">Results</h2>
-      <table class="table table-bordered table-hover table-condensed">
+    <h2 id="results">Results</h2>
+    <table class="table table-bordered table-hover table-condensed">
 <thead><tr><th title="Field #1">Expectation</th>
 <th title="Field #2">JAWS 2024 with Chrome</th>
 <th title="Field #3">JAWS 2024 with Firefox</th>
@@ -88,17 +89,18 @@
 </tr>
 <tr>
 <td>Announce Label &amp; description / error</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit blank<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit blank<br/>7 announces: <br/>Labelledby + edit blank,<br/>Ignores label test</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit, has autocomplete<br/>describedby <br/>Blank<br/>4 announce:<br/>&lt;label&gt;<br/>edit, has autocomplete<br/>describedby <br/>blank<br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit, has autocomplete<br/>blank<br/>7 announces: <br/>Labelledby + edit, has autocomplete<br/>blank<br/><br/>Ignores label test</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>edit<br/>describedby <br/>4 announce:<br/>&lt;label&gt; + describedby<br/>edit<br/>describedby <br/>5 + 6 announces:<br/>&lt;label&gt; + describedby<br/>edit<br/>7 announces: <br/>Labelledby + edit,<br/>Ignores label test</td>
-<td>4 through 6,<br/>Described by &amp; labeled by are ignored on focus, but can be read out via “more items menu” which is then not read out loud</td>
-<td>1 through 7,<br/>For 1~3, it will announce:<br/>&lt;label&gt;<br/>“Description” + describedby <br/>4 through 6 it will announce &lt;label&gt; + describedby<br/>7 the labelledby replaces the label</td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit blank<br/>describedby <br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/>describedby <br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/><br/>7 announces: <br/>Labelledby + edit blank,<br/>-&gt; Ignores label text</td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit blank<br/>describedby <br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/>describedby <br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/><br/>7 announces: <br/>Labelledby + edit blank,<br/>-&gt; Ignores label text</td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit blank<br/>describedby <br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/>describedby <br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/><br/>7 announces: <br/>Labelledby + edit blank<br/>-&gt; Ignores label text</td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit blank<br/>describedby <br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/>describedby <br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit blank<br/><br/>7 announces: <br/>Labelledby + edit blank<br/>-&gt; Ignores label text<br/><br/><br/><br/></td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit, has autocomplete<br/>describedby <br/>Blank<br/><br/>4 announces:<br/>`&lt;label&gt;`<br/>edit, has autocomplete<br/>describedby <br/>blank<br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit, has autocomplete<br/>blank<br/><br/>7 announces: <br/>Labelledby + edit, has autocomplete<br/>blank<br/>-&gt; Ignores label text</td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit<br/>describedby <br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>edit<br/>describedby <br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit<br/><br/>7 announces: <br/>Labelledby + edit,<br/>-&gt; Ignores label text</td>
+<td>1–3 announces:<br/>`&lt;label&gt;`<br/>edit text<br/>-&gt; Ignores described by<br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>edit text<br/>describedby <br/><br/>5 + 6 announces:<br/>`&lt;label&gt;` + describedby<br/>edit text<br/><br/>7 announces: <br/>Labelledby + edit text<br/>-&gt; Ignores label text</td>
+<td>1–4 announces:<br/>`&lt;label&gt;`<br/>“Description” + describedby<br/>Text field<br/><br/>4 announces:<br/>`&lt;label&gt;` + describedby<br/>“Description” + describedby<br/>Text field<br/><br/>5+6 announces:<br/>`&lt;label&gt;` + describedby<br/>Text field<br/><br/>7 announces:<br/>Labelledby<br/>-&gt; Ignores label text</td>
 <td>Not testest</td>
 </tr>
-</tbody></table>
+</tbody></table>  
+      
 		<h2>Screen reader and OS Version Details</h2>
 		<ul>
 			<li>JAWS 2024.2310.70 with Chrome 119.0.6045.200</li>
@@ -111,5 +113,9 @@
 			<li>VoiceOver (iOS) 17.1.2 on Safari 17.1.2</li>
 		</ul>
 		</main>
+		<footer>
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+			<p><a href="index.html">Go back to the test overview.</a></p>
+		</footer>
 	</body>
 </html>
