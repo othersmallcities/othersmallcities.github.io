@@ -101,6 +101,72 @@
       	</fieldset>
       </form>
     	<h2 id="results">Results</h2>
+    	<table>
+<thead>
+<tr>
+<th>Expectation                                                     </th>
+<th>JAWS 2024 with Chrome                                            </th>
+<th>JAWS 2024 with Firefox                                           </th>
+<th>JAWS 2024 with Edge                                              </th>
+<th>NVDA with Chrome                                                 </th>
+<th>NVDA with Firefox                                                </th>
+<th>Narrator on Edge                                                 </th>
+<th>VoiceOver on Mac with Safari                                                                                                                                                                                                                                                                                                                                                                                                             </th>
+<th>VoiceOver on iOS with Safari                                                                                                                                                                                                                                                                                                                                                              </th>
+<th>Talkback on Android with Chrome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Announce the fieldset legend                                    </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1 and 2                                                                                                                                                                                                                                                                                                                                                                                                                                  </td>
+<td>1 and 2                                                                                                                                                                                                                                                                                                                                                                                   </td>
+<td>Not tested                     </td>
+</tr>
+<tr>
+<td>Announce the each label for each radio button                   </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1, 2 and 3                                                       </td>
+<td>1 and 2                                                                                                                                                                                                                                                                                                                                                                                                                                  </td>
+<td>1 and 2                                                                                                                                                                                                                                                                                                                                                                                   </td>
+<td>Not tested                     </td>
+</tr>
+<tr>
+<td>Announce <code>aria-describedby</code>                                     </td>
+<td>1 2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order</td>
+<td>1 2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order</td>
+<td>1 2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order</td>
+<td>1 2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order</td>
+<td>1 2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order</td>
+<td>1 2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order</td>
+<td>1 <ins id="firstdiff"></ins>2 and 3 ignores <code>aria-describbedby</code> Announces the rest in order                                                                                                                                                                                                                                                                                                                                                                        </td>
+<td>1 announces on each radio button focus: on radio button Label Description + <code>aria-labeledby</code> Checkbox Radio button Checked / unchecked Placement  on label Label Description + <code>aria-labeledby</code>  2 announces on each radio button focus: on radio button Label Checkbox Radio button Checked / unchecked placement Invalid data -&gt; <code>aria-describbedby</code> is ignored  on label Label -&gt; <code>aria-describbedby</code> is ignored and invalid data is ignored  3 announces on each radio button focus: on radio button Label Description + <code>aria-labeledby</code> Checkbox Radio button Checked / unchecked Placement Invalid data  on label Label Description + <code>aria-labeledby</code> Ignores Invalid data</td>
+<td>Not tested                     </td>
+</tr>
+<tr>
+<td>Announce the whole fieldset as invalid as with its error message</td>
+<td>2 only when first focusing on the group 3 yes                    </td>
+<td>2 only when first focusing on the group 3 yes                    </td>
+<td>2 only when first focusing on the group 3 yes                    </td>
+<td>2 only when first focusing on the group 3 yes                    </td>
+<td>2 only when first focusing on the group 3 yes                    </td>
+<td>1 and 2, no 3 yes                                                </td>
+<td>2 only when first focusing on the group 3 yes                                                                                                                                                                                                                                                                                                                                                                                            </td>
+<td>Yes                                                                                                                                                                                                                                                                                                                                                                                       </td>
+<td>Not tested                     </td>
+</tr>
+</tbody>
+</table>
 			<h2>Screen reader and OS Version Details</h2>
 			<ul>
 				<li>JAWS 2024.2310.70 with Chrome 119.0.6045.200</li>
