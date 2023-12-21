@@ -3,8 +3,30 @@
 	<head>
 		<title>Select Test</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				font-family: sans-serif;
+				max-width: 60ch
+			}
+			body, button {
+				font-size: 1.2rem;
+			}
+			table {
+				border-collapse: collapse;
+			}
+
+			th, td {
+				border: 1px solid #999;
+				padding: 0.5rem;
+				text-align: left;
+				vertical-align: top;
+			}
+		</style>
 	</head>
 	<body>
+		<h1>Select Test with a select element.</h1>
+		<p>The select element below includes a <code>selected</code> option (option 2) as well as a <code>disabled</code> option (option 3).</p>
+		<h2>The Test</h2>
 		<form>
 			<label for="select">A label for a normal select element</label>
 			<select id="select">
@@ -14,6 +36,183 @@
 				<option val="4">option 4</option>
 			</select>
 		</form>
+		<h2>Browser Results</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Expectation</th>
+					<th>Chrome (Win)</th>
+					<th>Chrome (Mac)</th>
+					<th>Firefox (Win)</th>
+					<th>Firefox (Mac)</th>
+					<th>Edge (Win)</th>
+					<th>Safari (Mac)</th>
+					<th>Safari (iOS)</th>
+					<th>Chrome Android</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				 <td>Browser displays the `selected` option</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Not tested</td>
+				</tr>
+				<tr>
+					<td>The `disabled` option cannot be selected</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Not tested</td>
+				</tr>
+				<tr>
+				 <td>Enter: opens the menu and places focus on the selected item.</td>
+				 <td>Yes</td>
+				 <td>No</td>
+				 <td>No</td>
+				 <td>No</td>
+				 <td>Yes</td>
+				 <td>No</td>
+				 <td>N/A</td>
+				 <td>Not tested</td>
+				</tr>
+				<tr>
+				 <td>Space: opens the menu and places focus on the selected item.</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>N/A</td>
+				 <td>Not tested</td>
+				</tr>
+				<tr>
+				 <td>Optional) Down Arrow: opens the menu and moves focus to the first menu item.</td>
+				 <td>No, just traverses the list</td>
+				 <td>No, opens menu and starts on `selected` item</td>
+				 <td>No, just traverses the list</td>
+				 <td>No, just traverses the list</td>
+				 <td>No, opens menu and starts on `selected` item</td>
+				 <td>No, opens menu and starts on `selected` item</td>
+				 <td>N/A</td>
+				 <td>Not tested</td>
+				</tr>
+				<tr>
+				 <td>(Optional) Up Arrow: opens the menu and moves focus to the last menu item.</td>
+				 <td>No, just traverses the list</td>
+				 <td>No, opens menu and starts on `selected` item</td>
+				 <td>No, just traverses the list</td>
+				 <td>No, just traverses the list</td>
+				 <td>No, opens menu and starts on `selected` item</td>
+				 <td>No, opens menu and starts on `selected` item</td>
+				 <td>N/A</td>
+				 <td>Not tested</td>
+				</tr>
+				<tr>
+				 <td>Esc closes select</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>Yes</td>
+				 <td>N/A</td>
+				 <td>Not tested</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Screenreader results</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Expectation</th>
+					<th>JAWS 2024 with Chrome</th>
+					<th>JAWS 2024 with Firefox</th>
+					<th>JAWS 2024 with Edge</th>
+					<th>NVDA with Chrome</th>
+					<th>NVDA with Firefox</th>
+					<th>Narrator on Edge</th>
+					<th>VoiceOver on Mac with Safari</th>
+					<th>VoiceOver on iOS with Safari</th>
+					<th>Talkback on Android with Chrome</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Announce Label text</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Not tested</td>
+				</tr>
+				<tr>
+					<td>Announce `selected` option</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>Announce each option</td>
+					<td>Yes</td>
+					<td>Yes including `disabled`</td>
+					<td>Yes</td>
+					<td>Yes including `disabled`</td>
+					<td>Yes including `disabled`</td>
+					<td>Yes including `disabled`</td>
+					<td>Yes including `disabled`</td>
+					<td>Yes</td>
+					<td>Not tested</td>
+				</tr>
+				<tr>
+					<td>Announce number of options</td>
+					<td>Yes</td>
+					<td>X of Y (not great)</td>
+					<td>Yes</td>
+					<td>X of Y (not great)</td>
+					<td>X of Y (not great)</td>
+					<td>X of Y (not great)</td>
+					<td>No</td>
+					<td>No</td>
+					<td>Not tested</td>
+				</tr>
+				<tr>
+					<td>Announce manual selected option</td>
+					<td>Label + `selected` option</td>
+					<td>Label + `selected` option</td>
+					<td>Label + `selected` option</td>
+					<td>Label + `selected` option</td>
+					<td>Label + `selected` option</td>
+					<td>Label + `selected` option</td>
+					<td>Label + `selected` option</td>
+					<td>Yes</td>
+					<td>Not tested</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Test and Version details</h2>
+		
+		
 		<footer>
 			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
 			<p><a href="index.html">Go back to the test overview.</a></p>
