@@ -5,12 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
 			.hover {
-				color:red;
-				visibility: hidden;
+				padding: 1rem;
 			}
 			.hover:hover {
-			  color: blue;
-				visibility: initial;
+				border: 3px solid #ababab;
+				margin: -3px;
 			}
 		</style>
 	</head>
@@ -20,8 +19,7 @@
 			<p>This is a quick demo of an element with hover to demonstrate that we cannot / should not differentiate between touch and mouse + keyboard input.</p>
 		</header>
 		<main>
-			<p>This is always visible.</p>
-			<p class="hover">This will only appear on hover.</p>
+			<p class="hover">This will have a border on hover.</p>
 		</main>
 		<footer>
 			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
