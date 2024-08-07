@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Login test 2</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				font-family: sans-serif;
+				line-height: 1.5;
+				max-width: 60ch
+			}
+			body, button {
+				font-size: 1.3rem;
+			}
+			label, input {
+				display: block;
+				margin: 1.2rem 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- the test mimics an existing structure + footer for my own needs -->
+		<form aria-labelledby="title">
+			<!-- using my own logo here for copy reasons -->
+			<img alt="company" src="https://othersmallcities.net/assets/logo.png" />
+			<h1 id="title">Login test 1</h1>
+			<label for="email">Email</label>
+			<input autofocus type="email" id="email" name="email">
+			<button type="submit">Continue</button>
+			<!-- yes I hate this pattern, too. -->
+		</form>
+		<footer>
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+			<p><a href="index.html">Go back to the test overview.</a></p>
+		</footer>
+	</body>
+</html>
