@@ -12,10 +12,21 @@
 			body, button {
 				font-size: 1.3rem;
 			}
+			table {
+				border-collapse: collapse;
+			}
+
+			th, td {
+				border: 1px solid #999;
+				padding: 0.5rem;
+				text-align: left;
+				vertical-align: top;
+			}
 		</style>
 	</head>
 	<body>
 		<h1 id="names">Accessible names</h1>
+		<h2>Tests</h2>
 		<p>Testing how things sound out.</p>
 		<p>username is online</p>
 		<p>username, online</p>
@@ -43,6 +54,105 @@
 				<mn>-1</mn>
 			</math>
 		</p>
+		<h2>Results</h2>
+		<table>
+    <tr>
+        <td>Expectation</td>
+        <td>JAWS 2024 with Chrome</td>
+        <td>JAWS 2024 with Firefox</td>
+        <td>JAWS 2024 with Edge</td>
+        <td>NVDA with Chrome</td>
+        <td>NVDA with Firefox</td>
+        <td>Narrator on Edge</td>
+        <td>VoiceOver on Mac with Safari</td>
+        <td>VoiceOver on iOS with Safari</td>
+        <td>Talkback on Android with Chrome</td>
+    </tr>
+    <tr>
+        <td>Is comma paused ok</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>N/a</td>
+    </tr>
+    <tr>
+        <td>Is there a diff when reading the image</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>N/a</td>
+    </tr>
+    <tr>
+        <td>1+1=2</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>N/a</td>
+    </tr>
+    <tr>
+        <td>1+1=2 mathML</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>mathML ignored</td>
+        <td>mathML ignored</td>
+        <td>ok</td>
+        <td>mathML ignored</td>
+        <td>ok</td>
+        <td>N/a</td>
+    </tr>
+    <tr>
+        <td>1-2=-1</td>
+        <td>Reads - as dash as “minus1”</td>
+        <td>Reads - as dash as “minus1”</td>
+        <td>Reads - as dash as “minus1”</td>
+        <td>Announces “-“ as “to” and announces “-1”</td>
+        <td>Announces “-“ as “to” and announces “-1”</td>
+        <td>Reads - as dash</td>
+        <td>Ignores “-“ and announces “-1”</td>
+        <td>Ignores “-“ and announces “-1”</td>
+        <td>N/a</td>
+    </tr>
+    <tr>
+        <td>1 - 2 = - 1</td>
+        <td>Reads - as dash</td>
+        <td>Reads - as dash</td>
+        <td>Reads - as dash</td>
+        <td>Announces “-“ as “to” and announces “-1” as “1”</td>
+        <td>Announces “-“ as “to” and announces “-1” as “1”</td>
+        <td>Reads - as dash</td>
+        <td>Ignores “-“</td>
+        <td>Ignores “-“</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>1-2=-1 mathML</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>ok</td>
+        <td>mathML ignored</td>
+        <td>mathML ignored</td>
+        <td>Igonres “-“</td>
+        <td>mathML ignored</td>
+        <td>ok</td>
+        <td>N/a</td>
+    </tr>
+	  </table>
 		<footer>
 			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
 			<p><a href="index.html">Go back to the test overview.</a></p>
