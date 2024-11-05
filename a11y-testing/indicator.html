@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>quick indictator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.av::before,
+			.pa::before,
+			.un::before {
+				background:green;
+				border-radius: 50%;
+				border: 1px solid #757575;
+				content: " ";
+				display: inline-flex;
+				margin-right:.7rem;
+				height: .7rem;
+				width: .7rem;
+			}
+			.pa::before {
+				background: white;
+			}
+			.un::before {
+				/* not super pretty but functional */
+				background: linear-gradient(0deg, rgba(207,23,11,1) 35%, rgba(255,255,255,1) 50%, rgba(207,23,11,1) 65%);
+			  box-shadow: inset 0px 4px 0px crimson;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Quick indicator</h1>
+			<p>Indicator to show if something is available.</p>
+		</header>
+		<main>
+			<p class="av">Available</p>
+			<p class="pa">Partly available</p>
+			<p class="un">Unavailable</p>
+		<footer>
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+			<p><a href="index.html">Go back to the test overview.</a></p>
+		</footer>
+	</body>
+</html>
