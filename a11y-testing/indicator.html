@@ -9,37 +9,64 @@
 				line-height: 1.5;
 				max-width: 60ch
 			}
+			.av,
+			.pa,
+			.un,
+			.bug {
+				position: relative
+			}
+
 			.av::before,
 			.pa::before,
-			.un::before {
+			.un::before,
+			.bug::before {
 				background:green;
 				border-radius: 50%;
-				border: 0.11rem solid #222;
+				border: 0.11em solid #222;
 				content: " ";
 				display: inline-flex;
-				margin-right:.7rem;
-				height: .7rem;
-				width: .7rem;
+				margin-right:.7em;
+				height: .7em;
+				width: .7em;
 			}
 			.pa::before {
-				background: white;
+				background: yellow;
+			}
+			.pa::after {
+				transform: rotate(-45deg);
 			}
 			.un::before {
-				/* not super pretty but functional */
-				background: linear-gradient(0deg, rgba(207,23,11,1) 35%, rgba(255,255,255,1) 50%, rgba(207,23,11,1) 65%);
-			  box-shadow: inset 0px 3px 1px crimson;
+				background: white;
 			}
+			.bug::before{
+				background: crimson;
+			}
+			.pa::after,
+			.bug::after{
+
+				content: "—";
+				color:transparent;
+				position: absolute;
+				left: .1em;
+				top: .56em;
+				font-weight: 900;
+ 				border-top: 0.2em solid black;
+ 				height: 0px;
+ 				width: 0.7em;
+			}
+
 		</style>
 	</head>
 	<body>
 		<header>
 			<h1>Quick indicator</h1>
-			<p>Indicator to show if something is available.</p>
+			<p>Indicator to show if something is available. It could be used how a component is faring.</p>
 		</header>
 		<main>
 			<p class="av">Available</p>
 			<p class="pa">Partly available</p>
 			<p class="un">Unavailable</p>
+			<p class="bug">Bugs</p>
 		<footer>
 			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
 			<p><a href="index.html">Go back to the test overview.</a></p>
