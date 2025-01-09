@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Reduce motion demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				color: #202020;
+				font-family: "Atkinson Hyperlegible", Helvetica, serif;
+			}
+			a {
+				color: #000086;
+			}
+
+			a:visited {
+				color: #2c0442;
+			}
+			:focus {
+				outline: thick solid #115ca0;	
+			}
+			
+			.demo-content {
+				margin: 3rem 10vw;
+			}
+			
+			/*animation*/
+			.lds-dual-ring {
+				/* change color here */
+				color: #3e5110
+			}
+			.lds-dual-ring,
+			.lds-dual-ring:after {
+				box-sizing: border-box;
+			}
+			.lds-dual-ring {
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+			}
+			.lds-dual-ring:after {
+				content: " ";
+				display: block;
+				width: 64px;
+				height: 64px;
+				margin: 8px;
+				border-radius: 50%;
+				border: 7px solid currentColor;
+				border-color: currentColor transparent currentColor transparent;
+				animation: lds-dual-ring 1.2s linear infinite;
+			}
+			@keyframes lds-dual-ring {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			
+			@media (prefers-reduced-motion) {
+				.lds-dual-ring:after {
+					animation:none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1 id="skip">Reduce motion demo</h1>
+			
+			<div class="demo-content">
+				<div class="lds-dual-ring"></div>
+				<p><strong>Loading...</strong></p>
+			</div>
+			<p>Loading animation from <a href="https://loading.io/css/">Loading.io</a>, licensed as <a href="https://creativecommons.org/public-domain/cc0/">CC0</a></p>
+		</main>
+		<footer>
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+		</footer>
+	</body>
+</html>
