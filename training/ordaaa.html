@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+	<head>
+		<title>DOM order</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			*, *::before, *::after {
+				box-sizing: border-box;
+			}
+			body {
+			  background: #f4f4f4;
+				color: #202020;
+				font-family: "Atkinson Hyperlegible", Helvetica, serif;
+			}
+			a {
+				color: #000086;
+			}
+
+			a:visited {
+				color: #2c0442;
+			}
+			:focus {
+				outline: thick solid #115ca0;	
+			}
+			
+			.demo-content {
+				margin: 3rem 10vw;
+			}
+			
+			.card {
+				background: #f9f9f9;
+				border: #aaa 1px solid;
+				padding: 1rem;
+				max-width: 21rem;
+			}
+		
+			.card figure {
+				margin:0;
+				padding: 0;
+			}
+		
+			.card * {
+				margin:0;
+			}
+			
+			.card .cta {
+				font-weight: bold;
+				text-align: center;
+			}
+		
+			@media (min-width: 43.75rem) {
+				.card {
+					display: flex;
+					flex-wrap:wrap;
+
+				}
+				.card h2 {
+					flex: 1 0 100%;
+					order: 2
+				}
+				.card figure {
+					order: 1
+				}
+				.card .cta {
+					flex: 1 0 100%;
+					order: 5;
+				}
+				.card .des {
+					order:4
+				}
+				.card .cat {
+					order:3
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>DOM order is important</h1>
+		<p>On this page, I will be demonstrating how the <code>DOM</code> order is important for screen reader and keyboard users alike.</p>
+		<p>If you use a screen reader with this page and have the page read out, you will see how the page is read in <code>DOM</code> order. Since I have added 2 links, the tab order will also be wrong in the bad (first) example.</p>
+		<p>This is a responsive page, so please try a small and large screen. The switch occurs at 43.75rem/700px. The small screen shows the <code>DOM</code> order, the larger screen will show the reorder via <code>flexbox</code>.</p>
+		
+		
+		<p>First a bad example.</p>
+		<div class="demo-content">
+			<article aria-labelledby="title1" class="card">
+				<h2 id="title1">Card title 1</h2>
+				<p class="cta"><a href="#">CTA</a></p>
+				<p class="des">Description text that will be a bit longer.</p>
+				<p class="cat"><a href="#">category</a></p>
+				<figure><img src="pixelbay.jpg" alt="A man holding and looking intently at a small kitten. The kitten looks bored into the camera." width="300" height="200"/></figure>
+			</article>
+		</div>
+		
+		<p>Now a better example.</p>
+		<div class="demo-content">
+			<article aria-labelledby="title2" class="card">
+				<figure><img src="pixelbay.jpg" alt="A man holding and looking intently at a small kitten. The kitten looks bored into the camera." width="300" height="200"/></figure>
+				<h2 id="title2">Card title 2</h2>
+				<p class="cat"><a href="#">category</a></p>
+				<p class="des">Description text that will be a bit longer.</p>
+				<p class="cta"><a href="#">CTA</a></p>
+			</article>
+		</div>
+		
+		<footer class="has-focus">
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+		</footer>
+	</body>
+</html>
