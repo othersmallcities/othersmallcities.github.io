@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+	<head>
+		<title>Do not fix items</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			*, *::before, *::after {
+				box-sizing: border-box;
+			}
+			body {
+			  background: #f4f4f4;
+				color: #202020;
+				font-family: "Atkinson Hyperlegible", Helvetica, serif;
+			}
+			a {
+				color: #000086;
+			}
+
+			a:visited {
+				color: #2c0442;
+			}
+			:focus {
+				outline: thick solid #115ca0;	
+			}
+			
+			/* for the backdrop */
+			#dialog_fix::backdrop {
+				background: red;
+				opacity: 0.75;
+			}
+			#dialog_loose::backdrop {
+				background: green;
+				opacity: 0.75;
+			}
+			
+			dialog {
+				margin: 1rem;
+				padding: 0 1rem;
+			}
+			
+			dialog header button {
+				position: absolute;
+				right: 1rem;
+				top: 2.2rem;
+			}
+			
+			#dialog_fix header,
+			#dialog_fix footer{
+				position: sticky;
+				top: 0;
+				background: white;
+				padding: 0.5rem 0;
+			}
+			
+			#dialog_fix footer,
+			#dialog_loose footer{
+			  bottom: 0;
+			  padding: 1rem 0;
+			}
+			
+			.sr-only {
+				clip: rect(1px, 1px, 1px, 1px);
+				clip-path: inset(50%);
+				height: 1px;
+				width: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>Don't fix things that ain't broken.</h1>
+		<p>Fixed or sticky elements can cause issues for people who zoom, are on a small screen or just like to use their browsers in a tiny window.</p>
+		<p>Press either button to launch a modal. The first one has a fixed header and footer. The other one does not. Make your window small to see the issues or zoom as far as you can.</p>
+		
+		<button id="fixed">Modal with fixes, breaking it.</button>
+		
+		<dialog role="dialog" id="dialog_fix">
+			<header>
+				<button autofocus id="close_1" aria-labelledby="cb_1">X <span id="cb_1" class="sr-only">Close</span></button>
+			<h1>This header is fixed</h1>
+			</header>
+			<div>
+				<h2>Intro</h2>
+				<p>The footer below is also fixed. The width and height have been fixed, to make the contents more manageable. The browser also handles the positioning, but I have added some margins to space it out a little bit.</p>
+				<h2><a href="https://creativecommons.org/public-domain/cc0/">About CC0</a></h2>
+				<h3>“No Rights Reserved”</h3>
+				<p>CC0 enables scientists, educators, artists and other creators and owners of copyright- or database-protected content to waive those interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law.</p>
+				<p>In contrast to CC’s licenses that allow copyright holders to choose from a range of permissions while retaining their copyright, CC0 empowers yet another choice altogether – the choice to opt out of copyright and database protection, and the exclusive rights automatically granted to creators – the “no rights reserved” alternative to our licenses.</p>
+				<h3>The Problem</h3>
+				<p>Dedicating works to the public domain is difficult if not impossible for those wanting to contribute their works for public use before applicable copyright or database protection terms expire. Few if any jurisdictions have a process for doing so easily and reliably. Laws vary from jurisdiction to jurisdiction as to what rights are automatically granted and how and when they expire or may be voluntarily relinquished. More challenging yet, many legal systems effectively prohibit any attempt by these owners to surrender rights automatically conferred by law, particularly moral rights, even when the author wishing to do so is well informed and resolute about doing so and contributing their work to the public domain.</p>
+				<h3>A Solution</h3>
+				<p>CC0 helps solve this problem by giving creators a way to waive all their copyright and related rights in their works to the fullest extent allowed by law. CC0 is a universal instrument that is not adapted to the laws of any particular legal jurisdiction, similar to many open source software licenses. And while no tool, not even CC0, can guarantee a complete relinquishment of all copyright and database rights in every jurisdiction, we believe it provides the best and most complete alternative for contributing a work to the public domain given the many complex and diverse copyright and database systems around the world.</p>
+				<h3>Using CC0</h3>
+				<p>Unlike the Public Domain Mark, CC0 should not be used to mark works already free of known copyright and database restrictions and in the public domain throughout the world. However, it can be used to waive copyright and database rights to the extent you may have these rights in your work under the laws of at least one jurisdiction, even if your work is free of restrictions in others. Doing so clarifies the status of your work unambiguously worldwide and facilitates reuse.</p>
+				<p>You should only apply CC0 to your own work, unless you have the necessary rights to apply CC0 to another person’s work.</p>
+				<p>Source: <a href="https://creativecommons.org/public-domain/cc0/">Creative Commons: CC0</a></p>
+			</div>
+			<footer>
+				<button autofocus id="close_2">Confirm you have tested this.</button>
+			</footer>
+		</dialog>
+		
+		<br><br>
+		
+		<button id="loose">Modal without fixes, being visible.</button>
+		<dialog role="dialog" id="dialog_loose">
+			<header>
+				<button autofocus id="close_3" aria-labelledby="cb_1">X <span id="cb_1" class="sr-only">Close</span></button>
+			<h1>This header is static</h1>
+			</header>
+			<div>
+				<h2>Intro</h2>
+				<p>The footer below is also set to static. The width has been fixed to make the contents more manageable. The height however is determined by the browser. The browser also handles the positioning, but I have added some margins to space it out a little bit.</p>
+				<h2><a href="https://creativecommons.org/public-domain/cc0/">About CC0</a></h2>
+				<h3>“No Rights Reserved”</h3>
+				<p>CC0 enables scientists, educators, artists and other creators and owners of copyright- or database-protected content to waive those interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law.</p>
+				<p>In contrast to CC’s licenses that allow copyright holders to choose from a range of permissions while retaining their copyright, CC0 empowers yet another choice altogether – the choice to opt out of copyright and database protection, and the exclusive rights automatically granted to creators – the “no rights reserved” alternative to our licenses.</p>
+				<h3>The Problem</h3>
+				<p>Dedicating works to the public domain is difficult if not impossible for those wanting to contribute their works for public use before applicable copyright or database protection terms expire. Few if any jurisdictions have a process for doing so easily and reliably. Laws vary from jurisdiction to jurisdiction as to what rights are automatically granted and how and when they expire or may be voluntarily relinquished. More challenging yet, many legal systems effectively prohibit any attempt by these owners to surrender rights automatically conferred by law, particularly moral rights, even when the author wishing to do so is well informed and resolute about doing so and contributing their work to the public domain.</p>
+				<h3>A Solution</h3>
+				<p>CC0 helps solve this problem by giving creators a way to waive all their copyright and related rights in their works to the fullest extent allowed by law. CC0 is a universal instrument that is not adapted to the laws of any particular legal jurisdiction, similar to many open source software licenses. And while no tool, not even CC0, can guarantee a complete relinquishment of all copyright and database rights in every jurisdiction, we believe it provides the best and most complete alternative for contributing a work to the public domain given the many complex and diverse copyright and database systems around the world.</p>
+				<h3>Using CC0</h3>
+				<p>Unlike the Public Domain Mark, CC0 should not be used to mark works already free of known copyright and database restrictions and in the public domain throughout the world. However, it can be used to waive copyright and database rights to the extent you may have these rights in your work under the laws of at least one jurisdiction, even if your work is free of restrictions in others. Doing so clarifies the status of your work unambiguously worldwide and facilitates reuse.</p>
+				<p>You should only apply CC0 to your own work, unless you have the necessary rights to apply CC0 to another person’s work.</p>
+				<p>Source: <a href="https://creativecommons.org/public-domain/cc0/">Creative Commons: CC0</a></p>
+			</div>
+			<footer>
+				<button id="close_4">Confirm you have tested this.</button>
+			</footer>
+		</dialog>
+		
+		
+		<footer class="has-focus">
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+		</footer>
+		
+		<script>
+			
+			// set the varibales for each dialog
+			let button_fix = document.getElementById("fixed");
+			let dialog_fix = document.getElementById("dialog_fix");
+			let close_fix_1 = document.getElementById("close_1");
+			let close_fix_2 = document.getElementById("close_2");
+			let button_loose = document.getElementById("loose");
+			let dialog_loose = document.getElementById("dialog_loose");
+			let close_fix_3 = document.getElementById("close_3");
+			let close_fix_4 = document.getElementById("close_4");
+			
+			// Show a modal on button press.
+			
+			button_fix.addEventListener("click", function() {
+				dialog_fix.showModal();
+			});
+			
+			button_loose.addEventListener("click", function() {
+				dialog_loose.showModal();
+			});
+			
+			// Close the modal on any of the two buttons
+			
+			close_fix_1.addEventListener("click", function() {
+				dialog_fix.close();
+			});
+			close_fix_2.addEventListener("click", function() {
+				dialog_fix.close();
+			});
+			
+			close_fix_3.addEventListener("click", function() {
+				dialog_loose.close();
+			});
+			close_fix_4.addEventListener("click", function() {
+				dialog_loose.close();
+			});
+			
+		</script>
+		
+	</body>
+</html>
