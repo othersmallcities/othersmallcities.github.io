@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>A11y Tokyo meetup soundboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1>A11y Tokyo meetup soundboard</h1>
+		<!-- consider image replace with svg -->
+		<p>Time to say goodbye!</p>
+		<div class="buttons">
+			<button onclick="play1()"><em>(1)</em> Thank you, please leave!</button>
+			<button onclick="play2()"><em>(2)</em> Time to leave! Thank you</button>
+			<button onclick="play3()"><em>(3)</em> Please remove yourself!</button>
+			<button onclick="play4()"><em>(4)</em> Talk outside!</button>
+			<button onclick="play5()"><em>(5)</em> The sky is on fire!</button>
+			<button onclick="play6()"><em>(6)</em> Next is death metal! Come again.</button>
+		</div>
+		<!-- this could be visually hidden if needed -->
+		<div class="audio">
+			 <audio id="s1" src="sounds/1.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s2" src="sounds/2.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s3" src="sounds/3.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s4" src="sounds/4.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s5" src="sounds/5.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s6" src="sounds/6.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s7" src="sounds/7.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s8" src="sounds/8.mp3" type="audio/mpeg" preload></audio>
+			 <audio id="s9" src="sounds/9.mp3" type="audio/mpeg" preload></audio>
+		</div>
+		<div>
+			<p>This is the A11y Tokyo meetup soundboard. It was created to give our visitors a gentle reminder to please leave the venue.</p>
+			<p>The soundboard is made up of 5 increasingly annoyed requests to please get out and one version of 夕焼け小焼け from Osaka. The sounds are:</p>
+			<ol>
+				<li>Thank you for coming, it is time to leave.</li>
+				<li>It is indeed time to leave. Thank you.</li>
+				<li>Please remove yourself from the premise.</li>
+				<li>You can talk outside, too. Please leave.</li>
+				<li>Fiery Red Sky</li>
+				<li>The next song will be death metal. Please come again.</li>
+			</ol>
+		</div>
+		<script>
+			// this is a very simple setup coz I am not the best at this, sorry. Please improve
+			// 1. trigger on touch / mousedown
+      function play1() {
+        var audio = document.getElementById("s1");
+        audio.play();
+      }
+      function play2() {
+        var audio = document.getElementById("s2");
+        audio.play();
+      }
+      function play3() {
+        var audio = document.getElementById("s3");
+        audio.play();
+      }
+      function play4() {
+        var audio = document.getElementById("s4");
+        audio.play();
+      }
+      function play5() {
+        var audio = document.getElementById("s5");
+        audio.play();
+      }
+      function play6() {
+        var audio = document.getElementById("s6");
+        audio.play();
+      }
+      
+      // 2. play on key press, only planned for keyboard users for now... not accessible I know that too. It is an easter egg. sorry. I am ready to discuss this.
+    </script>
+	</body>
+</html>

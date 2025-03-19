@@ -1,0 +1,33 @@
+body {
+	font-size: 1.3rem;
+}
+
+.buttons {
+	display: grid;
+	gap: 1rem;
+}
+button {
+	appearance: none;
+	background: #BB002D;
+	border: 2px solid #6b061e;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	color: white;
+	height: 5rem;
+	width: 100%;
+}
+
+@media (min-width: 55rem) {
+	body {
+		font-size: 1.7rem;
+	}
+  .buttons {
+		
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 40vh 40vh;
+	}
+	button {
+		font-size: 3rem;
+		height: 100%;
+	}
+}
