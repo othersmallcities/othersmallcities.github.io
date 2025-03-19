@@ -5,6 +5,7 @@ body {
 .buttons {
 	display: grid;
 	gap: 1rem;
+	margin-bottom: 1rem;
 }
 button {
 	appearance: none;
@@ -22,12 +23,18 @@ button {
 		font-size: 1.7rem;
 	}
   .buttons {
-		
 		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 40vh 40vh;
+		grid-template-rows: 35vh 35vh;
 	}
 	button {
 		font-size: 3rem;
 		height: 100%;
+	}
+	.buttons.small {
+		grid-template-rows: 10vh;
+	}
+	
+	.small button {
+		font-size: 1.5rem;		
 	}
 }
