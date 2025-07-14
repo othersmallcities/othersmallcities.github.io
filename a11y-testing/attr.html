@@ -12,12 +12,11 @@
 			<p>Text in italics are the text subjects.</p>
 			<hr>
 			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-label</code> "Label, Good day." and the a text node of "Good night". <span aria-label="Label, Good day."><em>Good night.</em></span></p>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-description</code> "Description: This is a description." and the a text node of "This is is text". <span aria-description="Description: This is a description."><em>This is Text.</em></span></p>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-description</code> "Description: This is a description." and the a text node of "This is is text". <span aria-description="Description, This is a description."><em>This is Text.</em></span></p>
 			<hr>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-labelledby</code> linking to the next sentence and the a text node of Good night. <span aria-labelledby="day"><em>Good night.</em></span> <span id="day">Labelby: Good day.</span></p>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-describedby</code> linking to the next sentence and the a text node of "This is text". <span aria-describedby="text"><em>This is text.</em></span> <span id="text">Describedby: This is a description.</span></p>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-labelledby</code> linking to the next sentence and the a text node of Good night. <span aria-labelledby="day"><em>Good night.</em></span></p>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-describedby</code> linking to the next sentence and the a text node of "This is text". <span aria-describedby="text"><em>This is text.</em></span></p>
 			<hr>
-			
 			<p>Next will be a <code>&lt;button&gt;</code> with the text "Button" and a useless but often used <code>title</code>-attribute of "Button description".</p>
 			<button title="Button description">
 				Button
@@ -25,6 +24,10 @@
 			<hr>
 			<p>Lastly an image with the <code>alt</code>-text of "A man holding and looking intently at a small kitten. The kitten looks bored into the camera." The <a href="https://pixabay.com/photos/man-kitten-pet-owner-kitty-tabby-1868563/">photo is from pixelbay</a>.</p>
 			<img src="pixelbay.jpg" alt="A man holding and looking intently at a small kitten. The kitten looks bored into the camera." width="300" height="200"/>
+			<hr>
+			<p>The following are the labelledby and describedby sources.</p>
+			<p id="text">Describedby: This is a description.</p>
+			 <span id="day">Labelledby: Good day.</span>
 			<h2>Test results</h2>
 			<p>Note: I set all devices to German for this test.</p>
 			<p>The test was conducted July 14, 2025.</p>
