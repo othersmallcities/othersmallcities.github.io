@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Attribute Test</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<h1>Attribute Test</h1>
+		<main>
+			<h2>Test setup</h2>
+			<p>This test can be used to check how well certain attributes are machine translated and then read out by screen readers or ignored. The results should be self-explanatory.</p>
+			<hr>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-label</code> "Good day." and the a text node of "Good night". <span aria-label="Good day.">Good night.</span></p>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-description</code> "This is a description." and the a text node of "This is is text". <span aria-description="This is a description.">This is Text.</span></p>
+			<hr>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-labelledby</code> linking to the next sentence and the a text node of Good night. <span aria-labelledby="day">Good night.</span> <span id="day">Good day.</span></p>
+			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-describedby</code> linking to the next sentence and the a text node of "This is text". <span aria-describedby="text">This is text.</span> <span id="text">This is a description.</span></p>
+			<hr>
+			<p>Next will be a <code>&lt;button&gt;</code> with the text "Button" and a useless but often used <code>title</code>-attribute of "Button description".</p>
+			<button title="Button description">
+				Button
+			</button>
+			<hr>
+			<p>Lastly an image with the <code>alt<code>-text of "A man holding and looking intently at a small kitten. The kitten looks bored into the camera." The <a href="https://pixabay.com/photos/man-kitten-pet-owner-kitty-tabby-1868563/">photo is from pixelbay</a>.</p>
+			<img src="pixelbay.jpg" alt="A man holding and looking intently at a small kitten. The kitten looks bored into the camera." width="300" height="200"/>
+			<h2>Test results</h2>
+		</main>
+		<footer>
+			<p>I am putting this together under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Deed (public domain)</a>, but feel free to link back to here or me personally <a href="https://othersmallcities.net">Philipp Christoph Tautz</a>.</p>
+			<p><a href="index.html">Go back to the test overview.</a></p>
+		</footer>
+	</body>
+</html>
