@@ -11,23 +11,57 @@
 			<p>This test can be used to check how well certain attributes are machine translated and then read out by screen readers or ignored. The results should be self-explanatory.</p>
 			<p>Text in italics are the text subjects.</p>
 			<hr>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-label</code> "Label, Good day." and the a text node of "Good night". <span role="comment" aria-label="Label, Good day."><em>Good night.</em></span></p>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with the <code>aria-description</code> "Description: This is a description." and the a text node of "This is is text". <span aria-description="Description, This is a description."><em>This is Text.</em></span></p>
+			
+			<h3><code>aria-label</code></h3>
+			<p>Each of the following elements has an <code>aria-label</code> of "label" and a text node of "not a label". Check the source for each element.</p>
+			<h4 aria-label="label">not a label</h4>
+			<button aria-label="label">not a label</button>
+			<p aria-label="label">not a label</p>
+			<p><span aria-label="label">not a label</span></p>
+			
+			<h3><code>aria-description</code></h3>
+			<p>Each of the following elements has an <code>aria-description</code> of "description" and a text node of "not a description". Check the source for each element.</p>
+			<h4 aria-description="description">not a description</h4>
+			<button aria-description="description">not a description</button>
+			<p aria-description="description">not a description</p>
+			<p><span aria-description="description">not a description</span></p>
+			
 			<hr>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-labelledby</code> linking to the next sentence and the a text node of Good night. <span aria-labelledby="day"><em>Good night.</em></span></p>
-			<p>The next sentence is a <code>&lt;span&gt;</code> with <code>aria-describedby</code> linking to the next sentence and the a text node of "This is text". <span aria-describedby="text"><em>This is text.</em></span></p>
+			
+			<h3><code>aria-labelledby</code></h3>
+			<p>Each of the following elements has an <code>aria-labelledby</code> of "labelled by" and a text node of "not labelled by". Check the source for each element.</p>
+			<h4 aria-labelledby="labelled">not labelled by</h4>
+			<button aria-labelledby="labelled">not labelled by</button>
+			<p aria-labelledby="labelled">not labelled by</p>
+			<p><span aria-labelledby="labelled">not labelled by</span></p>
+			
+			<h3><code>aria-describedby</code></h3>
+			<p>Each of the following elements has an <code>aria-describedby</code> of "described by" and a text node of "no title". Check the source for each element.</p>
+			<h4 aria-describedby="described">no title</h4>
+			<button aria-describedby="described">no title</button>
+			<p aria-describedby="described">no title</p>
+			<p><span aria-describedby="described">no title</span></p>
+			
 			<hr>
-			<p>Next will be a <code>&lt;button&gt;</code> with the text "Button" and a useless but often used <code>title</code>-attribute of "Button description".</p>
-			<button title="Button description">
-				Button
-			</button>
+			
+			<h3><code>title</code></h3>
+			<p>Each of the following elements has a <code>title</code> of "title thing" and a text node of "no title". Check the source for each element.</p>
+			<h4 title="title thing">no title</h4>
+			<button title="title thing">no title</button>
+			<p title="title thing">no title</p>
+			<p><span title="title thing">no title</span></p>
+			<p><abbr title="title thing">no title</abbr></p>
+			
 			<hr>
+			
 			<p>Lastly an image with the <code>alt</code>-text of "A man holding and looking intently at a small kitten. The kitten looks bored into the camera." The <a href="https://pixabay.com/photos/man-kitten-pet-owner-kitty-tabby-1868563/">photo is from pixelbay</a>.</p>
 			<img src="pixelbay.jpg" alt="A man holding and looking intently at a small kitten. The kitten looks bored into the camera." width="300" height="200"/>
 			<hr>
+			
 			<p>The following are the labelledby and describedby sources.</p>
-			<p id="text">Describedby: This is a description.</p>
-			 <span id="day">Labelledby: Good day.</span>
+			<p id="described">described by</p>
+			<p id="labelled">labelled by</p>
+			 
 			<h2>Test results</h2>
 			<p>Note: I set all devices to German for this test.</p>
 			<p>The test was conducted July 14, 2025.</p>
